@@ -1,0 +1,74 @@
+#!/bin/sh
+
+ENABLED=yes
+PATH=/opt/bin:/opt/sbin:/sbin:/bin:/usr/sbin:/usr/bin
+
+PIDFILE="/opt/var/run/WOL.pid"
+
+SCRIPT="/opt/WOL-Keenetic/app.js"
+LOGS="/opt/WOL-Keenetic/log.txt"
+
+wol_service_status ()
+{
+	[ -f $PIDFILE ] && [ -d /proc/`cat $PIDFILE` ]
+}
+
+start()
+{
+	echo "[$(date '+%d.%m.%Y %H:%M:%S')]: Wait 10 seconds..." | tee -a "$LOGS"
+
+	sleep 10
+
+	echo "[$(date '+%d.%m.%Y %H:%M:%S')]: Starting WOL Keenetic" | tee -a "$LOGS"
+
+    node $SCRIPT >> $LOGS 2>&1 &
+    echo $! > $PIDFILE
+
+	if [ -s "$PIDFILE" ]; then
+        echo "[$(date '+%d.%m.%Y %H:%M:%S')]: Process started successfully with PID $(cat $PIDFILE)" | tee -a "$LOGS"
+    else
+        echo "[$(date '+%d.%m.%Y %H:%M:%S')]: Failed to start process." | tee -a "$LOGS"
+    fi
+}
+
+stop()
+{
+	echo "[$(date '+%d.%m.%Y %H:%M:%S')]: Stopping WOL Keenetic" | tee -a "$LOGS"
+	kill `cat $PIDFILE`
+}
+
+case "$1" in
+	start)
+		if wol_service_status
+		then
+			echo WOL Keenetic already running
+		else
+			start
+		fi
+		;;
+	stop)
+		if wol_service_status
+		then
+			stop
+		else
+			echo WOL Keenetic is not running
+		fi
+		;;
+	status)
+		if wol_service_status
+		then
+			echo WOL Keenetic already running
+		else
+			echo WOL Keenetic is not running
+		fi
+		;;
+
+	restart)
+		stop
+		sleep 3
+		start
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart|status}"
+		;;
+esac

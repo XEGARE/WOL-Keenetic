@@ -1,0 +1,25 @@
+{
+  "name": "wol-keenetic",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XEGARE/WOL-Keenetic.git"
+  },
+  "author": "XEGARE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XEGARE/WOL-Keenetic/issues"
+  },
+  "homepage": "https://github.com/XEGARE/WOL-Keenetic#readme",
+  "description": "",
+  "dependencies": {
+    "dateformat": "^5.0.3",
+    "express": "^4.21.2",
+    "wakeonlan": "^0.1.0"
+  }
+}
