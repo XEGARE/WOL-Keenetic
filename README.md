@@ -1,4 +1,4 @@
-# Node.js Script Setup for Sending Magic Packets via Keenetic Router
+# Node.js script setup for sending magic packets via Keenetic Router
 
 This script, written in **Node.js**, sends a **magic packet** to a target device to turn it on via a Keenetic router.
 
@@ -52,3 +52,8 @@ If any errors occur, refer to the logs for debugging:
 ```bash
 cat /opt/WOL-Keenetic/log.txt
 ```
+
+### 8. Configure KeenDNS on the Keenetic Router
+Set up a domain name on the port from config.json and with access to the router.
+
+Use: [http://your.domain.name/launch](http://your.domain.name/launch)
