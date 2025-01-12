@@ -19,6 +19,7 @@ Edit the config.json file to set up the following parameters:
 * **port**: Port for the web server.
 * **macAddress**: The MAC address of the device to be turned on.
 * **ipAddress**: The IP address of the device in the local network.
+* **secret**: Secret key for access.
 
 ### 3. Copy folders to Keenetic Router
 Copy the **WOL-Keenetic** folder and the **etc** directory to the Keenetic Entware path **/opt**.
@@ -56,7 +57,9 @@ cat /opt/WOL-Keenetic/log.txt
 ### 8. Configure KeenDNS on the Keenetic Router
 Set up a domain name on the port from config.json and with access to the router.
 
-Use: [http://your.domain.name/launch](http://your.domain.name/launch)
+Use:  
+To start the device: [http://your.domain.name/launch/secret-key](http://your.domain.name/launch/secret-key)  
+To check the device status(see [Note](https://github.com/XEGARE/WOL-Keenetic?tab=readme-ov-file#note)): [http://your.domain.name/status/secret-key](http://your.domain.name/status/secret-key)
 
 ## Note
 ### For Windows Users
