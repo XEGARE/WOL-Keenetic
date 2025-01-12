@@ -8,7 +8,6 @@ function log(text) {
 }
 
 const app = express()
-const port = config.port
 
 app.get('/launch', (req, res) => {
     wol(config.macAddress, { address: config.ipAddress })
@@ -21,4 +20,4 @@ app.get('/launch', (req, res) => {
         })
 })
 
-app.listen(port, () => log('Server has been started on port ' + port + '...'))
+app.listen(config.port, () => log(`Server has been started on port ${config.port}...`))
