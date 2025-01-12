@@ -57,3 +57,7 @@ cat /opt/WOL-Keenetic/log.txt
 Set up a domain name on the port from config.json and with access to the router.
 
 Use: [http://your.domain.name/launch](http://your.domain.name/launch)
+
+## Note
+### For Windows Users
+For the proper functioning of the utility on Windows, it is necessary to allow the **ICMPv4** protocol in the firewall settings. This is required for operations involving network device availability checks (such as pinging).
