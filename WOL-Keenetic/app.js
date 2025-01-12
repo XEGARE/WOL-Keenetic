@@ -10,7 +10,17 @@ function log(text) {
 
 const app = express()
 
-app.get('/launch', (req, res) => {
+app.get('/launch/:secret', (req, res) => {
+    const secretKey = req.params.secret
+
+    if (!secretKey) {
+        return res.status(400).json({ status: 'error', message: 'Secret Key is required!' })
+    }
+
+    if (secretKey !== config.secret) {
+        return res.status(403).json({ status: 'error', message: 'Unauthorized access: Secret Key does not match!' })
+    }
+
     wol(config.macAddress, { address: config.ipAddress })
         .then(() => {
             log('WOL sent!')
@@ -22,7 +32,17 @@ app.get('/launch', (req, res) => {
         })
 })
 
-app.get('/status', async (req, res) => {
+app.get('/status/:secret', async (req, res) => {
+    const secretKey = req.params.secret
+
+    if (!secretKey) {
+        return res.status(400).json({ status: 'error', message: 'Secret Key is required!' })
+    }
+
+    if (secretKey !== config.secret) {
+        return res.status(403).json({ status: 'error', message: 'Unauthorized access: Secret Key does not match!' })
+    }
+
     try {
         log(`Сhecking device status ${config.ipAddress}`)
         const result = await ping.promise.probe(config.ipAddress)

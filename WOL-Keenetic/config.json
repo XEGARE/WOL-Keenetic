@@ -1,5 +1,6 @@
 {
     "port": 5555,
     "macAddress": "<device-mac-address>",
-    "ipAddress": "<device-ip-in-local-network>"
+    "ipAddress": "<device-ip-in-local-network>",
+    "secret": "<secret-key>"
 }
