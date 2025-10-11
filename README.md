@@ -9,7 +9,7 @@ On your main system, clone the repository and install the required dependencies 
 
 ```bash
 git clone https://github.com/XEGARE/WOL-Keenetic.git
-cd WOL-Keenetic
+cd WOL-Keenetic\WOL-Keenetic
 npm install
 ```
 
