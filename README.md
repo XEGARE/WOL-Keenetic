@@ -16,7 +16,7 @@ npm install
 
 ### 2. Configure the config file
 
-Edit the [`config.json`](./config.json) file to set up the following parameters:
+Edit the [`config.json`](./WOL-Keenetic/config.json) file to set up the following parameters:
 
 -   **port**: Port for the web server.
 -   **macAddress**: The MAC address of the device to be turned on.
@@ -67,7 +67,7 @@ cat /opt/WOL-Keenetic/log.txt
 
 ### 8. Configure KeenDNS on the Keenetic Router
 
-Set up a domain name on the port from [`config.json`](./config.json) and with access to the router.
+Set up a domain name on the port from [`config.json`](./WOL-Keenetic/config.json) and with access to the router.
 
 ### 9. Use
 
