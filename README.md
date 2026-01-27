@@ -4,24 +4,22 @@ This script, written in **Node.js**, sends a **magic packet** to a target device
 
 ## Installation Steps
 
-### 1. Clone the repository and install Dependencies
+### 1. Clone the repository
 
-On your main system, clone the repository and install the required dependencies using npm:
+On your main system, clone the repository:
 
 ```bash
 git clone https://github.com/XEGARE/WOL-Keenetic.git
-cd WOL-Keenetic\WOL-Keenetic
-npm install
 ```
 
 ### 2. Configure the config file
 
 Edit the [`config.json`](./WOL-Keenetic/config.json) file to set up the following parameters:
 
--   **port**: Port for the web server.
--   **macAddress**: The MAC address of the device to be turned on.
--   **ipAddress**: The IP address of the device in the local network.
--   **secret**: Secret key for access.
+- **port**: Port for the web server.
+- **macAddress**: The MAC address of the device to be turned on.
+- **ipAddress**: The IP address of the device in the local network.
+- **secret**: Secret key for access.
 
 ### 3. Copy folders to Keenetic Router
 
@@ -32,7 +30,15 @@ Copy the **WOL-Keenetic** folder and the **etc** directory to the Keenetic Entwa
 Connect to your Keenetic router via SSH and install Node.js:
 
 ```bash
-opkg install node
+opkg update && opkg upgrade
+opkg install node node-npm
+```
+
+Install Dependencies:
+
+```bash
+cd /opt/WOL-Keenetic
+npm i
 ```
 
 ### 5. Set the script as executable
@@ -90,13 +96,13 @@ http://<Your Keenetic Domain Name>/status/<secret>
 Launch:
 
 ```
-http://<Your Keenetic Domain Name>/launch/<secret>/<mac>/<ip>
+http://<Your Keenetic Domain Name>/launch/<secret>?mac=<mac>&address=<ip>
 ```
 
 Status (see [Note](https://github.com/XEGARE/WOL-Keenetic?tab=readme-ov-file#note)):
 
 ```
-http://<Your Keenetic Domain Name>/status/<secret>/<ip>
+http://<Your Keenetic Domain Name>/status/<secret>?address=<ip>
 ```
 
 ## Note
