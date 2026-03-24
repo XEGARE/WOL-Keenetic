@@ -2,7 +2,16 @@
 
 This script, written in **Node.js**, sends a **magic packet** to a target device to turn it on via a Keenetic router.
 
-## Installation Steps
+## Quick installation
+
+```bash
+opkg update && opkg upgrade && opkg install curl && cd /tmp
+url="https://raw.githubusercontent.com/XEGARE/WOL-Keenetic/refs/heads/main/install.sh"
+curl -OL "$url" && chmod +x install.sh
+./install.sh
+```
+
+## Manual Installation Steps
 
 ### 1. Clone the repository
 
