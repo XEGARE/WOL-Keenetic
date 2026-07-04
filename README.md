@@ -2,6 +2,13 @@
 
 This script, written in **Node.js**, sends a **magic packet** to a target device to turn it on via a Keenetic router.
 
+## Alternative Option
+
+> [!IMPORTANT]
+> For sending the **magic packet** only
+
+Send a request via the router's REST API. See this [guide](https://gist.github.com/XEGARE/bdd6b9cd8eaa887e7c4e6a7fdc614314).
+
 ## Quick installation
 
 ```bash
